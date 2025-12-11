@@ -10,9 +10,9 @@ class ImageGalleryColumn extends Column
 {
     protected string $view = 'image-gallery::columns.image-gallery';
 
-    protected int | Closure $thumbWidth = 40;
+    protected int | Closure | null $thumbWidth = 40;
 
-    protected int | Closure $thumbHeight = 40;
+    protected int | Closure | null $thumbHeight = 40;
 
     protected int | Closure | null $limit = 3;
 
@@ -36,26 +36,26 @@ class ImageGalleryColumn extends Column
 
     protected string | Closure $visibility = 'public';
 
-    public function thumbWidth(int | Closure $width): static
+    public function thumbWidth(int | Closure | null $width): static
     {
         $this->thumbWidth = $width;
 
         return $this;
     }
 
-    public function getThumbWidth(): int
+    public function getThumbWidth(): ?int
     {
         return $this->evaluate($this->thumbWidth);
     }
 
-    public function thumbHeight(int | Closure $height): static
+    public function thumbHeight(int | Closure | null $height): static
     {
         $this->thumbHeight = $height;
 
         return $this;
     }
 
-    public function getThumbHeight(): int
+    public function getThumbHeight(): ?int
     {
         return $this->evaluate($this->thumbHeight);
     }
@@ -230,6 +230,7 @@ class ImageGalleryColumn extends Column
 
             // If disk is specified, generate URL from storage
             if ($disk) {
+                /** @var \Illuminate\Filesystem\FilesystemAdapter $storage */
                 $storage = Storage::disk($disk);
                 
                 if ($visibility === 'private') {

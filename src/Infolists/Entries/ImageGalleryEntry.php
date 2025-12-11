@@ -10,9 +10,9 @@ class ImageGalleryEntry extends Entry
 {
     protected string $view = 'image-gallery::entries.image-gallery';
 
-    protected int | Closure $thumbWidth = 128;
+    protected int | Closure | null $thumbWidth = null;
 
-    protected int | Closure $thumbHeight = 128;
+    protected int | Closure | null $thumbHeight = null;
 
     protected string | Closure $imageGap = 'gap-4';
 
@@ -28,26 +28,26 @@ class ImageGalleryEntry extends Entry
 
     protected string | Closure $visibility = 'public';
 
-    public function thumbWidth(int | Closure $width): static
+    public function thumbWidth(int | Closure | null $width): static
     {
         $this->thumbWidth = $width;
 
         return $this;
     }
 
-    public function getThumbWidth(): int
+    public function getThumbWidth(): ?int
     {
         return $this->evaluate($this->thumbWidth);
     }
 
-    public function thumbHeight(int | Closure $height): static
+    public function thumbHeight(int | Closure | null $height): static
     {
         $this->thumbHeight = $height;
 
         return $this;
     }
 
-    public function getThumbHeight(): int
+    public function getThumbHeight(): ?int
     {
         return $this->evaluate($this->thumbHeight);
     }
@@ -59,7 +59,7 @@ class ImageGalleryEntry extends Entry
         return $this;
     }
 
-    public function getImageGap(): string
+    public function getImageGap(): Closure|string
     {
         return $this->evaluate($this->imageGap);
     }
@@ -71,7 +71,7 @@ class ImageGalleryEntry extends Entry
         return $this;
     }
 
-    public function getRounded(): string
+    public function getRounded(): Closure|string
     {
         return $this->evaluate($this->rounded);
     }
@@ -95,7 +95,7 @@ class ImageGalleryEntry extends Entry
         return $this;
     }
 
-    public function getEmptyText(): string
+    public function getEmptyText(): Closure|string
     {
         return $this->evaluate($this->emptyText);
     }
@@ -131,7 +131,7 @@ class ImageGalleryEntry extends Entry
         return $this;
     }
 
-    public function getVisibility(): string
+    public function getVisibility(): Closure|string
     {
         return $this->evaluate($this->visibility);
     }
@@ -152,7 +152,7 @@ class ImageGalleryEntry extends Entry
 
         return collect($state)->map(function ($item) use ($disk, $visibility) {
             $path = null;
-            
+
             if (is_string($item)) {
                 $path = $item;
             } elseif (is_array($item)) {
@@ -172,12 +172,13 @@ class ImageGalleryEntry extends Entry
 
             // If disk is specified, generate URL from storage
             if ($disk) {
+                /** @var \Illuminate\Filesystem\FilesystemAdapter $storage */
                 $storage = Storage::disk($disk);
-                
+
                 if ($visibility === 'private') {
                     return $storage->temporaryUrl($path, now()->addMinutes(5));
                 }
-                
+
                 return $storage->url($path);
             }
 
