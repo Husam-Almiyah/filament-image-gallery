@@ -10,9 +10,9 @@ class ImageGalleryColumn extends Column
 {
     protected string $view = 'image-gallery::columns.image-gallery';
 
-    protected int | Closure | null $thumbWidth = 40;
+    protected int | Closure | null $thumbWidth = null;
 
-    protected int | Closure | null $thumbHeight = 40;
+    protected int | Closure | null $thumbHeight = null;
 
     protected int | Closure | null $limit = 3;
 
@@ -174,7 +174,7 @@ class ImageGalleryColumn extends Column
         return $this;
     }
 
-    public function getEmptyText(): string
+    public function getEmptyText(): Closure|string
     {
         return $this->evaluate($this->emptyText);
     }
@@ -198,7 +198,7 @@ class ImageGalleryColumn extends Column
         return $this;
     }
 
-    public function getVisibility(): string
+    public function getVisibility(): Closure|string
     {
         return $this->evaluate($this->visibility);
     }

@@ -64,7 +64,7 @@
         <img
             src="{{ $src }}"
             loading="lazy"
-            class="object-cover {{ $borderColorClass }} shadow-sm {{ $borderRadiusClass }} hover:scale-110 transition cursor-pointer"
+            class="object-cover {{ $borderColorClass }} {{ $borderRadiusClass }} hover:scale-110 transition cursor-pointer"
             style="{{ $sizeStyle }} {{ $ringStyle }}"
             alt="image"
         />

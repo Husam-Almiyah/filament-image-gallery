@@ -155,7 +155,8 @@ Please see [CHANGELOG](CHANGELOG.md) for more information.
 
 ## Credits
 
-- [Al-Saloul](https://github.com/al-saloul)
+- [Mohammed Alsaloul](https://github.com/al-saloul)
+- [Husam Almiyah](https://github.com/Husam-Almiyah)
 - [Viewer.js](https://fengyuanchen.github.io/viewerjs/)
 
 ## License
