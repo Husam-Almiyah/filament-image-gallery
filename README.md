@@ -20,7 +20,12 @@ A Filament plugin for displaying image galleries with zoom, rotate, flip, and fu
 - 🔍 **Viewer.js Integration** - Zoom, rotate, flip, and fullscreen image viewing
 - 💾 **Storage Disk Support** - Works with any Laravel filesystem disk
 - 🌙 **Dark Mode Support** - Works seamlessly with dark mode
-- 🌐 **RTL Support** - Full right-to-left language support
+- 🌐 **RTL Support** - Full right-to-left language support  
+
+## Screenshots
+![screenshot](https://github.com/user-attachments/assets/cafdc5d7-9dbe-4850-8bf0-55275f7fe5d6)
+
+![screenshot](https://github.com/user-attachments/assets/c18149aa-6418-4569-a815-667e3d329177)
 
 ## Installation
 
