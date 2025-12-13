@@ -29,6 +29,19 @@ class ImageGalleryServiceProvider extends PackageServiceProvider
             $this->getAssets(),
             $this->getAssetPackageName()
         );
+
+        \Filament\Tables\Columns\ImageColumn::macro('imageGallery', function () {
+            $this->view('image-gallery::columns.image-column-gallery');
+            $this->disabledClick();
+
+            return $this;
+        });
+
+        \Filament\Infolists\Components\ImageEntry::macro('imageGallery', function () {
+            $this->view('image-gallery::infolists.entries.image-entry-gallery');
+
+            return $this;
+        });
     }
 
     protected function getAssetPackageName(): ?string

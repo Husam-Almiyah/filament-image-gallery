@@ -42,6 +42,32 @@ A Filament plugin for displaying image galleries with zoom, rotate, flip, and fu
 composer require al-saloul/filament-image-gallery
 ```
 
+
+## Quick Usage
+
+You can use the `imageGallery()` method on any standard Filament `ImageColumn` or `ImageEntry` to enable the gallery viewer.
+
+### Table Column
+
+```php
+use Filament\Tables\Columns\ImageColumn;
+
+ImageColumn::make('images')
+    ->circular()
+    ->stacked()
+    ->limit(3)
+    ->imageGallery() // Enables the gallery viewer
+```
+
+### Infolist Entry
+
+```php
+use Filament\Infolists\Components\ImageEntry;
+
+ImageEntry::make('images')
+    ->imageGallery() // Enables the gallery viewer
+```
+
 ## Usage
 
 ### Table Column
