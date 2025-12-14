@@ -1,9 +1,33 @@
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/al-saloul/images/refs/heads/main/filament-image-gallery.png" alt="filament-image-gallery">
+</p>
+
 # Filament Image Gallery
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/al-saloul/filament-image-gallery.svg?style=flat-square)](https://packagist.org/packages/al-saloul/filament-image-gallery)
 [![Total Downloads](https://img.shields.io/packagist/dt/al-saloul/filament-image-gallery.svg?style=flat-square)](https://packagist.org/packages/al-saloul/filament-image-gallery)
 
 A Filament plugin for displaying image galleries with zoom, rotate, flip, and fullscreen capabilities using [Viewer.js](https://fengyuanchen.github.io/viewerjs/).
+
+## Demo
+<p align="center">
+    <img src="https://raw.githubusercontent.com/al-saloul/images/refs/heads/main/filament-image-gallery.gif" alt="filament-image-gallery">
+</p>
+
+## Screenshots
+
+### Table Column
+| Thumbnails | Gallery Viewer |
+|:----------:|:--------------:|
+| ![Table Column - Thumbnails](https://raw.githubusercontent.com/al-saloul/images/refs/heads/main/onClickTable.jpg) | ![Table Column - Gallery Viewer](https://raw.githubusercontent.com/al-saloul/images/refs/heads/main/aferClickTable.png) |
+
+### Infolist Entry
+| Thumbnails | Gallery Viewer |
+|:----------:|:--------------:|
+| ![Infolist Entry - Thumbnails](https://raw.githubusercontent.com/al-saloul/images/refs/heads/main/onClickInfolist.jpg) | ![Infolist Entry - Gallery Viewer](https://raw.githubusercontent.com/al-saloul/images/refs/heads/main/aferClicknfolist.png) |
+
+---
 
 ## Requirements
 
@@ -31,6 +55,32 @@ A Filament plugin for displaying image galleries with zoom, rotate, flip, and fu
 
 ```bash
 composer require al-saloul/filament-image-gallery
+```
+
+
+## Quick Usage
+
+You can use the `imageGallery()` method on any standard Filament `ImageColumn` or `ImageEntry` to enable the gallery viewer.
+
+### Table Column
+
+```php
+use Filament\Tables\Columns\ImageColumn;
+
+ImageColumn::make('images')
+    ->circular()
+    ->stacked()
+    ->limit(3)
+    ->imageGallery() // Enables the gallery viewer
+```
+
+### Infolist Entry
+
+```php
+use Filament\Infolists\Components\ImageEntry;
+
+ImageEntry::make('images')
+    ->imageGallery() // Enables the gallery viewer
 ```
 
 ## Usage

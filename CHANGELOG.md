@@ -2,6 +2,18 @@
 
 All notable changes to `filament-image-gallery` will be documented in this file.
 
+## v2.1.0 - 2025-12-13
+
+### Added
+- `imageGallery()` macro for `Filament\Tables\Columns\ImageColumn`
+- `imageGallery()` macro for `Filament\Infolists\Components\ImageEntry`
+- Support for using standard Filament Image components with the gallery viewer
+
+## v2.0.6 - 2024-12-12
+
+### Fixed
+- Minor bug fixes
+
 ## v2.0.5 - 2024-12-11
 
 ### Fixed
